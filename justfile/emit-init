@@ -1,11 +1,32 @@
 #!/usr/bin/env just --justfile
+# 🧤 Ritual: Emit Init (Nickel + Ada)
+# 1. Runs Nickel to generate intermediate JSON
+# 2. Runs Ada parser to generate artifacts
+
 PARSER_BIN := 'ada/bin/loom_mittens_parser'
 PARSER_GPR := 'ada/loom_mittens_parser.gpr'
+
+PRECURSOR_CONFIG := 'loom.mittens.ncl'
+NORMALIZER_SCRIPT := 'grammar/normalize.ncl'
+INTERMEDIATE_JSON := 'loom.mittens.intermediate.json'
+
 @default: run-parser
+
+# Step 1: Run Nickel to transform config
+build-config:
+    @echo '--- ⚙️ Running Nickel (Normalizing Config) ---'
+    @echo 'INFO: Reading {{PRECURSOR_CONFIG}}'
+    @nickel export {{NORMALIZER_SCRIPT}} --format json > {{INTERMEDIATE_JSON}}
+    @echo 'INFO: Intermediate JSON created at {{INTERMEDIATE_JSON}}'
+
+# Step 2: Build the Ada parser
 build-parser:
     @echo '--- 🔧 Building Ada Mittens Parser ---'
     @cd ada && gprbuild -P {{PARSER_GPR}}
-run-parser: build-parser
+    @echo "INFO: Parser built at {{PARSER_BIN}}"
+
+# Step 3: Run the Ada parser (depends on config + build)
+run-parser: build-config build-parser
     @echo '--- 🧤 Emitting Shell Scripts, Salt States, and Profiles ---'
     @./{{PARSER_BIN}}
     @echo "SUCCESS: All configuration artifacts emitted."

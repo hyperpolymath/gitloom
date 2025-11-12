@@ -1,6 +1,14 @@
 #!/usr/bin/env just --justfile
-@echo '--- 🧼 Running Audit (Ada Diagnostic) ---'
+
+@echo '--- 🧼 Running Audit (Ada Diagnostic + Prolog Attestation) ---'
 @echo "INFO: Running in $LOOM_SANDBOX sandbox."
+
+# Build and run Ada diagnostic
 @cd ada && gprbuild -P diagnose.gpr
 @./ada/bin/diagnose
+
+# Run Prolog/Kanren attestation
+@echo 'INFO: Running symbolic attestation (Prolog/Kanren)...'
+@just run-prolog
+
 @echo 'INFO: Audit complete.'

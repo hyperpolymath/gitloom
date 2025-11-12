@@ -3,4 +3,8 @@ project Loom_Mittens_Parser is
    for Object_Dir use "../obj/mittens";
    for Exec_Dir use "../bin";
    for Main use ("loom_mittens_parser.adb");
+
+   -- Add GNATCOLL.JSON for parsing the intermediate file
+   with "gnatcoll_json";
+
 end Loom_Mittens_Parser;
