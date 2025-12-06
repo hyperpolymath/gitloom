@@ -1,0 +1,9 @@
+= gitloom
+
+== Description
+
+TODO: Add project description
+
+== License
+
+Dual licensed under MIT OR Palimpsest License v0.8.
