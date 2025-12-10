@@ -1,0 +1,36 @@
+= gitloom - Citation Guide
+:toc:
+
+== BibTeX
+
+[source,bibtex]
+----
+@software{gitloom_2025,
+  author = {Polymath, Hyper},
+  title = {gitloom},
+  year = {2025},
+  url = {https://github.com/hyperpolymath/gitloom},
+  license = {AGPL-3.0-or-later}
+}
+----
+
+== Harvard Style
+
+Polymath, H. (2025) _gitloom_ [Computer software]. Available at: https://github.com/hyperpolymath/gitloom
+
+== OSCOLA
+
+Hyper Polymath, 'gitloom' (2025) <https://github.com/hyperpolymath/gitloom>
+
+== MLA
+
+Polymath, Hyper. "gitloom." 2025, github.com/hyperpolymath/gitloom.
+
+== APA 7
+
+Polymath, H. (2025). _gitloom_ [Computer software]. GitHub. https://github.com/hyperpolymath/gitloom
+
+== See Also
+
+* link:../CITATION.cff[CITATION.cff]
+* link:../codemeta.json[codemeta.json]
