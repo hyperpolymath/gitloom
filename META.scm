@@ -97,3 +97,25 @@
       Each language is chosen for its strengths in its domain.")))
 
 ;;; End of META.scm
+;; ============================================================================
+;; CROSS-PLATFORM STATUS (Added 2025-12-17)
+;; ============================================================================
+
+(cross-platform-status
+  (generated "2025-12-17")
+  (primary-platform "github")
+  (gitlab-mirror
+    (path "hyperpolymath/ou/templaters/gitloom")
+    (url "https://gitlab.com/hyperpolymath/ou/templaters/gitloom")
+    (last-gitlab-activity "2025-12-06")
+    (sync-status "gh-primary")
+    (notes "GitHub significantly newer. Safe to sync GH→GL."))
+  
+  (reconciliation-instructions
+    ";; git remote add gitlab https://gitlab.com/hyperpolymath/ou/templaters/gitloom.git"
+    ";; git fetch gitlab && git log gitlab/main --oneline"
+    ";; git diff main gitlab/main"
+    ";; git merge gitlab/main --allow-unrelated-histories  # if needed")
+  
+  (action-required "gh-primary"))
+
